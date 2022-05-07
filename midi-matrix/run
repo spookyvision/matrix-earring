@@ -1,0 +1,2 @@
+#!/bin/sh
+RUSTC_WRAPPER= LEDS_W=8 LEDS_H=6 LEDS_SEGMENTS=1 DEFMT_LOG=debug cargo run --release --bin choker

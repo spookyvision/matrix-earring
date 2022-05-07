@@ -1,0 +1,16 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "midi-matrix",
+    #"flexi-led",
+]
+
+
+[profile.release]
+codegen-units = 1
+debug = 2
+debug-assertions = false
+incremental = false
+lto = 'fat'
+opt-level = "z"
