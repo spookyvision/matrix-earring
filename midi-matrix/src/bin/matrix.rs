@@ -22,6 +22,7 @@ use embassy_stm32::{
     peripherals::PC14,
     spi::{self, Spi},
     time::U32Ext,
+    usb_otg::{State, Usb, UsbBus, UsbOtg, UsbSerial},
     Config, Peripherals,
 };
 use panic_probe as _;
@@ -30,6 +31,7 @@ static CHANNEL: Forever<Channel<NoopRawMutex, usize, 1>> = Forever::new();
 
 #[embassy::main]
 async fn main(spawner: Spawner, p: Peripherals) {
+    warn!("use open drain outputs!");
     let mut buttons = (
         ExtiInput::new(Input::new(p.PA4, Pull::Up), p.EXTI4),
         ExtiInput::new(Input::new(p.PA5, Pull::Up), p.EXTI5),
